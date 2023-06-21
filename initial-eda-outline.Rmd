@@ -1,41 +1,111 @@
 ---
 title: "Initial EDA Basic Outline"
-author: "Names of all group members"
+author: "Allison Rachor"
 output: html_notebook
 ---
 
 This is an outline for your Initial EDA. You can follow this outline, or you can modify it as you see fit. Do what works best for your project. 
 
+```{r}
+library(tidyverse)
+library(devtools)
+library(dplyr)
+```
+
+
 ## Research Question 
 
 State your specific research question and why it is interesting. 
 
+How did the prevalent years, especially the year containing lock-down, of COVID-19 affect the sales of books in the United States?
 
+This is interesting because, intuitively, more people engaged in certain activities like reading to take up their time during quarantine (a habit that might not have previously been present for some). However, the lack of in-person availability to buy books could possibly offset whatever increase in overall purchases came from more reading in general.
 
 ## Data Processing 
 
 #### Data Intake 
 
 Include R code and written explanation to import your **TWO** data sets.
+```{r}
+StoreSales <- read.csv("bookstore_sales(csv).csv", na.omit(TRUE))
+RecCon <- read.csv("recreational_consumsption_1999-2022_csv.csv")
+```
+
+The first data set "StoreSales" is a refelction of the amount of book sales (in billions of dollars) that were made between the years 1992 and 2022. The collection was made by the U.S. Census Bureau where any retailer whose book sales made at least 50% of their revenue was considered a book store.
+
+The data set "RecCon" was created by the Bureau of Economic Analysis, an agency in the Department of Commerce. This data set contains the annual amount (in billions of dollars) of consumer expenditure on recreational book in the U.S from the years 1999 to 2022. 
+
+Both data sets contain the years covering the main years concerning COVID-19 (2019-2022).
+
+#### Data Examination 
+
+```{r}
+#StoreSales
+head(StoreSales)
+summary(StoreSales)
+colnames(StoreSales)
+#Recreational Consumption
+head(RecCon)
+summary(RecCon)
+colnames(RecCon)
+
+```
+No noticeable outliers are present in either data sets. The summary statistics for "RecCon" is clearly higher than those for "StoreSales". While the information for both are clearly related, this makes sense since "RecCon" includes money spent on books from retailers that would not have been considered book stores by the Census Bureau (i.e. Amazon and other popular online stores).
+
+The Column names for both sets need to be adjusted in order to describe the variables at hand.
 
 #### Data Wrangling 
 
 Include R code and written explanation for wangling your data (you can make multiple wrangled data sets). 
 
 
+```{r}
+StoreSales2 <- StoreSales[-c(1:28),] %>%
+  rename(Year = Book.store.sales.in.the.U.S..1992.2022) %>%
+  rename(Store_sales = X) %>%
+  mutate(Year = gsub(pattern = "[[:punct:]]", replacement = "", x = Year))
 
 
+RecCon2 <- RecCon[-c(1:21),] %>%
+  rename(Year = Recreational.books..consumer.expenditure.in.the.U.S..1999.2022) %>%
+  rename(Recreational_sales = X)
+  
+
+StoreRec <- StoreSales2 %>% inner_join(RecCon2)
+
+
+  
+```
+Both data sets needed to exclude all rows before 2018 since the research question is specifically about the years surrounding. The first columns in both needed to be renamed to "Year" to later allow the sets to join properly. The variables reflecting revenues for book store sales and recreational sales needed to be renamed as well. In "StoreSales", all the years needed to be mutated to make sure only numerical values were printed. Both sets were joined together by "Year", but only years that were recorded in each set.
+ 
 ## Data Visualization
 
 #### Plot 1
 
 Include R code to make one data visualization (I would encourage you to use 3 or more variables). Include a brief written description of what your graph shows. Is this graph helpful in answering your research question? If it is helpful, will you need to add/modify anything in this graph in the final report? 
 
+```{r}
+ggplot(data = RecCon2) +
+  geom_point(aes(x = Year, y = Recreational_sales)) +
+  ggtitle("Recreational Book Sales Over Covid in the U.S") +
+  ylab("Dollars (in Billions)")
+```
+This graph shows how the revenue for recreational book purchases of books changed during COVID. While the amount did not increase by a lot during the year of lock-down, there was a hue increase in the year after it. This addresses the research question by showing how a noticeable change did take place during the virus. 
+
 #### Plot 2
 
 Include R code to make one data visualization (I would encourage you to use 3 or more variables). Include a brief written description of what your graph shows. Is this graph helpful in answering your research question? If it is helpful, will you need to add/modify anything in this graph in the final report? 
 
+```{r}
+ggplot(data = StoreSales2) +
+  geom_point(aes(x = Year, y = Store_sales)) +
+  ggtitle("Book Store Sales Over Covid in the U.S") +
+  ylab("Dollars (in Billions)")
+```
+This graph shows a large decrease in book stores during the year of COVID-19, but an increase after the year of lock-down. This addresses the researcher question by describing a trend during the years of the virus. I could modify both graphs by also providinga a visual containing both data sets.
 
 ## Conclusion
 
 Include your initial intuition as to what the answer to your research question is using the data sets and visualizations you created. 
+
+It is clear tat COVID-19, in general ad an impact on the sales of book overall. The first graph shows ow a lot of time inside could have played a part in encouraging people to buy and (assumably) read more books than previous years. however, the sales from book stores was the lowest in 2020, the year of lock-down. This is surprising considering lock-down would have required more time at home, thus making it easier to pick up the habit. While this is the year where businesses were not open for a period of time, online resources could have made up for tat missing element. This suggests that while certain companies (like Amazon) sell a lot of books, in-person stores provide the vast majority of book sales.

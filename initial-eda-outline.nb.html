@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Names of all group members" />
+<meta name="author" content="Allison Rachor" />
 
 
 <title>Initial EDA Basic Outline</title>
@@ -1748,7 +1748,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Initial EDA Basic Outline</h1>
-<h4 class="author">Names of all group members</h4>
+<h4 class="author">Allison Rachor</h4>
 
 </div>
 
@@ -1757,9 +1757,47 @@ display: none;
 <p>This is an outline for your Initial EDA. You can follow this outline,
 or you can modify it as you see fit. Do what works best for your
 project.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoi4pSA4pSAIEF0dGFjaGluZyBjb3JlIHRpZHl2ZXJzZSBwYWNrYWdlcyDilIDilIBcbuKclCBmb3JjYXRzICAgMS4wLjAgICAgIOKclCByZWFkciAgICAgMi4xLjRcbuKclCBnZ3Bsb3QyICAgMy40LjIgICAgIOKclCBzdHJpbmdyICAgMS41LjBcbuKclCBsdWJyaWRhdGUgMS45LjIgICAgIOKclCB0aWJibGUgICAgMy4yLjFcbuKclCBwdXJyciAgICAgMS4wLjEgICAgIOKclCB0aWR5ciAgICAgMS4zLjDilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxu4pyWIGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbuKcliBkcGx5cjo6bGFnKCkgICAgbWFza3Mgc3RhdHM6OmxhZygpXG7ihLkgVXNlIHRoZSBcdTAwMWJdODs7aHR0cDovL2NvbmZsaWN0ZWQuci1saWIub3JnL1x1MDAwN2NvbmZsaWN0ZWQgcGFja2FnZVx1MDAxYl04OztcdTAwMDcgdG8gZm9yY2UgYWxsIGNvbmZsaWN0cyB0byBiZWNvbWUgZXJyb3JzXG4ifQ== -->
+<pre><code>── Attaching core tidyverse packages ──
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.2     ✔ stringr   1.5.0
+✔ lubridate 1.9.2     ✔ tibble    3.2.1
+✔ purrr     1.0.1     ✔ tidyr     1.3.0── Conflicts ──────────────────────────
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkZXZ0b29scylcbmBgYCJ9 -->
+<pre class="r"><code>library(devtools)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiB1c2V0aGlzXG5SZWdpc3RlcmVkIFMzIG1ldGhvZCBvdmVyd3JpdHRlbiBieSAnaHRtbHdpZGdldHMnOlxuICBtZXRob2QgICAgICAgICAgIGZyb20gICAgICAgICBcbiAgcHJpbnQuaHRtbHdpZGdldCB0b29sczpyc3R1ZGlvXG4ifQ== -->
+<pre><code>Loading required package: usethis
+Registered S3 method overwritten by &#39;htmlwidgets&#39;:
+  method           from         
+  print.htmlwidget tools:rstudio</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmBgYCJ9 -->
+<pre class="r"><code>library(dplyr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <div id="research-question" class="section level2">
 <h2>Research Question</h2>
 <p>State your specific research question and why it is interesting.</p>
+<p>How did the prevalent years, especially the year containing
+lock-down, of COVID-19 affect the sales of books in the United
+States?</p>
+<p>This is interesting because, intuitively, more people engaged in
+certain activities like reading to take up their time during quarantine
+(a habit that might not have previously been present for some). However,
+the lack of in-person availability to buy books could possibly offset
+whatever increase in overall purchases came from more reading in
+general.</p>
 </div>
 <div id="data-processing" class="section level2">
 <h2>Data Processing</h2>
@@ -1767,11 +1805,147 @@ project.</p>
 <h4>Data Intake</h4>
 <p>Include R code and written explanation to import your
 <strong>TWO</strong> data sets.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3RvcmVTYWxlcyA8LSByZWFkLmNzdihcImJvb2tzdG9yZV9zYWxlcyhjc3YpLmNzdlwiLCBuYS5vbWl0KFRSVUUpKVxuUmVjQ29uIDwtIHJlYWQuY3N2KFwicmVjcmVhdGlvbmFsX2NvbnN1bXNwdGlvbl8xOTk5LTIwMjJfY3N2LmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>StoreSales &lt;- read.csv(&quot;bookstore_sales(csv).csv&quot;, na.omit(TRUE))
+RecCon &lt;- read.csv(&quot;recreational_consumsption_1999-2022_csv.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The first data set “StoreSales” is a refelction of the amount of book
+sales (in billions of dollars) that were made between the years 1992 and
+2022. The collection was made by the U.S. Census Bureau where any
+retailer whose book sales made at least 50% of their revenue was
+considered a book store.</p>
+<p>The data set “RecCon” was created by the Bureau of Economic Analysis,
+an agency in the Department of Commerce. This data set contains the
+annual amount (in billions of dollars) of consumer expenditure on
+recreational book in the U.S from the years 1999 to 2022.</p>
+<p>Both data sets contain the years covering the main years concerning
+COVID-19 (2019-2022).</p>
+</div>
+<div id="data-examination" class="section level4">
+<h4>Data Examination</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1N0b3JlU2FsZXNcbmhlYWQoU3RvcmVTYWxlcylcbmBgYCJ9 -->
+<pre class="r"><code>#StoreSales
+head(StoreSales)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNiDDlyAyXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVJ2MDhDTVJRdXh4MkVTeUFrN3FZeGhzaEFJNGNtc0JGajNCRXZZWEFwWEpFTHBTVzlFdDEwY2ZaL2NQSlBjUGJmY1hGeFJWK1BOcm5jSmIzM3ZlLzEvZmhlYjY5bmczQVdJb1NxeUsvQ1B3Q0lndmp1cGpkRXlQZkFxU0FmTll4OWd2QVJBRU8yNGRSc1lISWw1UnBuV2lxR004cFpobE9COVlyaFdLU2FKWGlxcVFaeXFlUUc5MGVqQ0d1Sm8vTW93bWR3YjU1eW5rcUJZeklsT0pHY1U1VjFiV0ZrclcreUNuaFF3QmNGZkFtMlpRWjcvakhKOVhkbngvamo5K3Z0dmpzK0dVNitYNDgveDZmV2RwYjVWMUlhQ0xwaG1WWHBXYkpqVkpKY0pjbFZrbFFRVUVuTTVNUk1TSXdvdDZ4WnFXWkR5VWZpNmpaTjNaZGNJV3l4MUh6QmFlYWFPekpNcUtaa3FTQWZ2SDBwcFM2M0duWUlTWjU1bjZDVVhGRWxvcjBUWnBLa3QxanR4THJYTjNzTDgvamhOSzJ0RmJCMzZPbjkyVnFCclZWajRpRVZ6QTNQNlp4eDY3UkFjcTZZYkZVcXRKTUNiRWEwMU5UZEN4ZVNPeVlYaC9iL2JUZkJkcGNDQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Book.store.sales.in.the.U.S..1992.2022"],"name":[1],"type":["chr"],"align":["left"]},{"label":["X"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Book store sales in the United States from 1992 to 2022 (in billion U.S. dollars)","2":"NA","_rn_":"1"},{"1":"","2":"NA","_rn_":"2"},{"1":"1992","2":"8.33","_rn_":"3"},{"1":"1993","2":"9.11","_rn_":"4"},{"1":"1994","2":"10.11","_rn_":"5"},{"1":"1995","2":"11.20","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShTdG9yZVNhbGVzKVxuYGBgIn0= -->
+<pre class="r"><code>summary(StoreSales)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIEJvb2suc3RvcmUuc2FsZXMuaW4udGhlLlUuUy4uMTk5Mi4yMDIyICAgICAgIFggICAgICAgIFxuIExlbmd0aDozMyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1pbi4gICA6IDYuNTAgIFxuIENsYXNzIDpjaGFyYWN0ZXIgICAgICAgICAgICAgICAgICAgICAgIDFzdCBRdS46MTAuMzYgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICAgICAgICAgICAgICAgICAgICAgIE1lZGlhbiA6MTIuMjcgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1lYW4gICA6MTIuNjcgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46MTUuMzQgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1heC4gICA6MTcuMTcgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5BJ3MgICA6MiAgICAgIFxuIn0= -->
+<pre><code> Book.store.sales.in.the.U.S..1992.2022       X        
+ Length:33                              Min.   : 6.50  
+ Class :character                       1st Qu.:10.36  
+ Mode  :character                       Median :12.27  
+                                        Mean   :12.67  
+                                        3rd Qu.:15.34  
+                                        Max.   :17.17  
+                                        NA&#39;s   :2      </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMoU3RvcmVTYWxlcylcbmBgYCJ9 -->
+<pre class="r"><code>colnames(StoreSales)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQm9vay5zdG9yZS5zYWxlcy5pbi50aGUuVS5TLi4xOTkyLjIwMjJcIlxuWzJdIFwiWFwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
+<pre><code>[1] &quot;Book.store.sales.in.the.U.S..1992.2022&quot;
+[2] &quot;X&quot;                                     </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1JlY3JlYXRpb25hbCBDb25zdW1wdGlvblxuaGVhZChSZWNDb24pXG5gYGAifQ== -->
+<pre class="r"><code>#Recreational Consumption
+head(RecCon)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbNiDDlyAyXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVJQVTdETUJSMjA2UlZJN1dxeEk0OHdsQXJEUUkxQXlnU2lKMldTbDNkeEtXaHJsMGNSM1NEaFl2QUJSZ1p1UVUzWUdMZ0JBVTd0YVVva1p6MzUrKzk3M3NlWDgxTy9Ka1BBR2dDdDZuK25uS0JONzI5SG93QWNCMFZOSUFMT3RwdVZmbEFPVHJaVjZkbEN2ZVhuT1hGbWdoSXRodkMwa3dXZ2tET29DQ0pJRmhtbkdFSzU1eXZjcGd4S0pjRVRsa21TUW9uRWt1U3c0WGc2MkVVUlZCeUdBWmhDSS9VdFhsR3FVTENLWm9nbUhKS3NjaVB6VVJnckt0UjFnK0RJS2o0dzRvZkt0dlRqSjkrTmJqOWFtMTg5djcyNVo4L3hLUFZ5K0hIelU4OCtpemJ4OUgzUW4rMUZYZ01yMGx1NURzbWVUR3V5RVNsVElRU3N4SlVXUW5LR0ZMaWtWYUVOSE9reGRydHptcXpPb0kvSWp1dnErYzlsOVRVMm11a0VvcHpTOG9tL1JSTGpCWkM0VlcwcTBIYWZLUHBLcENqSDlTcmdSdWlsdWdYVEROSkI4bXlZS3ZCOEZSUEtPdjcwelcyVmZHZC9Vem56L1R5VEs4V1lYY1pJNVk4eFhOQ1RkQlRra3ZGYUNNeUpxMFVsYzJSNUJMYmUzN0NxYzJVNHNEdUg5VVlxNTNJQWdBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Recreational.books..consumer.expenditure.in.the.U.S..1999.2022"],"name":[1],"type":["chr"],"align":["left"]},{"label":["X"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Consumer expenditure on recreational books in the United States from1999 to 2022 (in billion U.S. dollars)","2":"NA","_rn_":"1"},{"1":"","2":"NA","_rn_":"2"},{"1":"1999","2":"22.69","_rn_":"3"},{"1":"2000","2":"24.42","_rn_":"4"},{"1":"2001","2":"24.75","_rn_":"5"},{"1":"2002","2":"25.90","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShSZWNDb24pXG5gYGAifQ== -->
+<pre class="r"><code>summary(RecCon)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFJlY3JlYXRpb25hbC5ib29rcy4uY29uc3VtZXIuZXhwZW5kaXR1cmUuaW4udGhlLlUuUy4uMTk5OS4yMDIyXG4gTGVuZ3RoOjI2ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBDbGFzcyA6Y2hhcmFjdGVyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICBYICAgICAgICBcbiBNaW4uICAgOjE4LjA5ICBcbiAxc3QgUXUuOjE5LjM4ICBcbiBNZWRpYW4gOjIzLjIwICBcbiBNZWFuICAgOjIyLjcwICBcbiAzcmQgUXUuOjI1LjkxICBcbiBNYXguICAgOjI3LjE2ICBcbiBOQSdzICAgOjIgICAgICBcbiJ9 -->
+<pre><code> Recreational.books..consumer.expenditure.in.the.U.S..1999.2022
+ Length:26                                                     
+ Class :character                                              
+ Mode  :character                                              
+                                                               
+                                                               
+                                                               
+                                                               
+       X        
+ Min.   :18.09  
+ 1st Qu.:19.38  
+ Median :23.20  
+ Mean   :22.70  
+ 3rd Qu.:25.91  
+ Max.   :27.16  
+ NA&#39;s   :2      </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMoUmVjQ29uKVxuYGBgIn0= -->
+<pre class="r"><code>colnames(RecCon)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiUmVjcmVhdGlvbmFsLmJvb2tzLi5jb25zdW1lci5leHBlbmRpdHVyZS5pbi50aGUuVS5TLi4xOTk5LjIwMjJcIlxuWzJdIFwiWFwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
+<pre><code>[1] &quot;Recreational.books..consumer.expenditure.in.the.U.S..1999.2022&quot;
+[2] &quot;X&quot;                                                             </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>No noticeable outliers are present in either data sets. The summary
+statistics for “RecCon” is clearly higher than those for “StoreSales”.
+While the information for both are clearly related, this makes sense
+since “RecCon” includes money spent on books from retailers that would
+not have been considered book stores by the Census Bureau (i.e. Amazon
+and other popular online stores).</p>
+<p>The Column names for both sets need to be adjusted in order to
+describe the variables at hand.</p>
 </div>
 <div id="data-wrangling" class="section level4">
 <h4>Data Wrangling</h4>
 <p>Include R code and written explanation for wangling your data (you
 can make multiple wrangled data sets).</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3RvcmVTYWxlczIgPC0gU3RvcmVTYWxlc1stYygxOjI4KSxdICU+JVxuICByZW5hbWUoWWVhciA9IEJvb2suc3RvcmUuc2FsZXMuaW4udGhlLlUuUy4uMTk5Mi4yMDIyKSAlPiVcbiAgcmVuYW1lKFN0b3JlX3NhbGVzID0gWCkgJT4lXG4gIG11dGF0ZShZZWFyID0gZ3N1YihwYXR0ZXJuID0gXCJbWzpwdW5jdDpdXVwiLCByZXBsYWNlbWVudCA9IFwiXCIsIHggPSBZZWFyKSlcblxuXG5SZWNDb24yIDwtIFJlY0NvblstYygxOjIxKSxdICU+JVxuICByZW5hbWUoWWVhciA9IFJlY3JlYXRpb25hbC5ib29rcy4uY29uc3VtZXIuZXhwZW5kaXR1cmUuaW4udGhlLlUuUy4uMTk5OS4yMDIyKSAlPiVcbiAgcmVuYW1lKFJlY3JlYXRpb25hbF9zYWxlcyA9IFgpXG4gIFxuXG5TdG9yZVJlYyA8LSBTdG9yZVNhbGVzMiAlPiUgaW5uZXJfam9pbihSZWNDb24yKVxuYGBgIn0= -->
+<pre class="r"><code>StoreSales2 &lt;- StoreSales[-c(1:28),] %&gt;%
+  rename(Year = Book.store.sales.in.the.U.S..1992.2022) %&gt;%
+  rename(Store_sales = X) %&gt;%
+  mutate(Year = gsub(pattern = &quot;[[:punct:]]&quot;, replacement = &quot;&quot;, x = Year))
+
+
+RecCon2 &lt;- RecCon[-c(1:21),] %&gt;%
+  rename(Year = Recreational.books..consumer.expenditure.in.the.U.S..1999.2022) %&gt;%
+  rename(Recreational_sales = X)
+  
+
+StoreRec &lt;- StoreSales2 %&gt;% inner_join(RecCon2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSm9pbmluZyB3aXRoIGBieSA9IGpvaW5fYnkoWWVhcilgXG4ifQ== -->
+<pre><code>Joining with `by = join_by(Year)`</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBcbmBgYCJ9 -->
+<pre class="r"><code>  </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Both data sets needed to exclude all rows before 2018 since the
+research question is specifically about the years surrounding. The first
+columns in both needed to be renamed to “Year” to later allow the sets
+to join properly. The variables reflecting revenues for book store sales
+and recreational sales needed to be renamed as well. In “StoreSales”,
+all the years needed to be mutated to make sure only numerical values
+were printed. Both sets were joined together by “Year”, but only years
+that were recorded in each set.</p>
 </div>
 </div>
 <div id="data-visualization" class="section level2">
@@ -1783,6 +1957,24 @@ to use 3 or more variables). Include a brief written description of what
 your graph shows. Is this graph helpful in answering your research
 question? If it is helpful, will you need to add/modify anything in this
 graph in the final report?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBSZWNDb24yKSArXG4gIGdlb21fcG9pbnQoYWVzKHggPSBZZWFyLCB5ID0gUmVjcmVhdGlvbmFsX3NhbGVzKSkgK1xuICBnZ3RpdGxlKFwiUmVjcmVhdGlvbmFsIEJvb2sgU2FsZXMgT3ZlciBDb3ZpZCBpbiB0aGUgVS5TXCIpICtcbiAgeWxhYihcIkRvbGxhcnMgKGluIEJpbGxpb25zKVwiKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = RecCon2) +
+  geom_point(aes(x = Year, y = Recreational_sales)) +
+  ggtitle(&quot;Recreational Book Sales Over Covid in the U.S&quot;) +
+  ylab(&quot;Dollars (in Billions)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>This graph shows how the revenue for recreational book purchases of
+books changed during COVID. While the amount did not increase by a lot
+during the year of lock-down, there was a hue increase in the year after
+it. This addresses the research question by showing how a noticeable
+change did take place during the virus.</p>
 </div>
 <div id="plot-2" class="section level4">
 <h4>Plot 2</h4>
@@ -1791,16 +1983,45 @@ to use 3 or more variables). Include a brief written description of what
 your graph shows. Is this graph helpful in answering your research
 question? If it is helpful, will you need to add/modify anything in this
 graph in the final report?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBTdG9yZVNhbGVzMikgK1xuICBnZW9tX3BvaW50KGFlcyh4ID0gWWVhciwgeSA9IFN0b3JlX3NhbGVzKSkgK1xuICBnZ3RpdGxlKFwiQm9vayBTdG9yZSBTYWxlcyBPdmVyIENvdmlkIGluIHRoZSBVLlNcIikgK1xuICB5bGFiKFwiRG9sbGFycyAoaW4gQmlsbGlvbnMpXCIpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = StoreSales2) +
+  geom_point(aes(x = Year, y = Store_sales)) +
+  ggtitle(&quot;Book Store Sales Over Covid in the U.S&quot;) +
+  ylab(&quot;Dollars (in Billions)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>This graph shows a large decrease in book stores during the year of
+COVID-19, but an increase after the year of lock-down. This addresses
+the researcher question by describing a trend during the years of the
+virus. I could modify both graphs by also providinga a visual containing
+both data sets.</p>
 </div>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
 <p>Include your initial intuition as to what the answer to your research
 question is using the data sets and visualizations you created.</p>
+<p>It is clear tat COVID-19, in general ad an impact on the sales of
+book overall. The first graph shows ow a lot of time inside could have
+played a part in encouraging people to buy and (assumably) read more
+books than previous years. however, the sales from book stores was the
+lowest in 2020, the year of lock-down. This is surprising considering
+lock-down would have required more time at home, thus making it easier
+to pick up the habit. While this is the year where businesses were not
+open for a period of time, online resources could have made up for tat
+missing element. This suggests that while certain companies (like
+Amazon) sell a lot of books, in-person stores provide the vast majority
+of book sales.</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW5pdGlhbCBFREEgQmFzaWMgT3V0bGluZSIKYXV0aG9yOiAiTmFtZXMgb2YgYWxsIGdyb3VwIG1lbWJlcnMiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KClRoaXMgaXMgYW4gb3V0bGluZSBmb3IgeW91ciBJbml0aWFsIEVEQS4gWW91IGNhbiBmb2xsb3cgdGhpcyBvdXRsaW5lLCBvciB5b3UgY2FuIG1vZGlmeSBpdCBhcyB5b3Ugc2VlIGZpdC4gRG8gd2hhdCB3b3JrcyBiZXN0IGZvciB5b3VyIHByb2plY3QuIAoKIyMgUmVzZWFyY2ggUXVlc3Rpb24gCgpTdGF0ZSB5b3VyIHNwZWNpZmljIHJlc2VhcmNoIHF1ZXN0aW9uIGFuZCB3aHkgaXQgaXMgaW50ZXJlc3RpbmcuIAoKCgojIyBEYXRhIFByb2Nlc3NpbmcgCgojIyMjIERhdGEgSW50YWtlIAoKSW5jbHVkZSBSIGNvZGUgYW5kIHdyaXR0ZW4gZXhwbGFuYXRpb24gdG8gaW1wb3J0IHlvdXIgKipUV08qKiBkYXRhIHNldHMuCgojIyMjIERhdGEgV3JhbmdsaW5nIAoKSW5jbHVkZSBSIGNvZGUgYW5kIHdyaXR0ZW4gZXhwbGFuYXRpb24gZm9yIHdhbmdsaW5nIHlvdXIgZGF0YSAoeW91IGNhbiBtYWtlIG11bHRpcGxlIHdyYW5nbGVkIGRhdGEgc2V0cykuIAoKCgoKIyMgRGF0YSBWaXN1YWxpemF0aW9uCgojIyMjIFBsb3QgMQoKSW5jbHVkZSBSIGNvZGUgdG8gbWFrZSBvbmUgZGF0YSB2aXN1YWxpemF0aW9uIChJIHdvdWxkIGVuY291cmFnZSB5b3UgdG8gdXNlIDMgb3IgbW9yZSB2YXJpYWJsZXMpLiBJbmNsdWRlIGEgYnJpZWYgd3JpdHRlbiBkZXNjcmlwdGlvbiBvZiB3aGF0IHlvdXIgZ3JhcGggc2hvd3MuIElzIHRoaXMgZ3JhcGggaGVscGZ1bCBpbiBhbnN3ZXJpbmcgeW91ciByZXNlYXJjaCBxdWVzdGlvbj8gSWYgaXQgaXMgaGVscGZ1bCwgd2lsbCB5b3UgbmVlZCB0byBhZGQvbW9kaWZ5IGFueXRoaW5nIGluIHRoaXMgZ3JhcGggaW4gdGhlIGZpbmFsIHJlcG9ydD8gCgojIyMjIFBsb3QgMgoKSW5jbHVkZSBSIGNvZGUgdG8gbWFrZSBvbmUgZGF0YSB2aXN1YWxpemF0aW9uIChJIHdvdWxkIGVuY291cmFnZSB5b3UgdG8gdXNlIDMgb3IgbW9yZSB2YXJpYWJsZXMpLiBJbmNsdWRlIGEgYnJpZWYgd3JpdHRlbiBkZXNjcmlwdGlvbiBvZiB3aGF0IHlvdXIgZ3JhcGggc2hvd3MuIElzIHRoaXMgZ3JhcGggaGVscGZ1bCBpbiBhbnN3ZXJpbmcgeW91ciByZXNlYXJjaCBxdWVzdGlvbj8gSWYgaXQgaXMgaGVscGZ1bCwgd2lsbCB5b3UgbmVlZCB0byBhZGQvbW9kaWZ5IGFueXRoaW5nIGluIHRoaXMgZ3JhcGggaW4gdGhlIGZpbmFsIHJlcG9ydD8gCgoKIyMgQ29uY2x1c2lvbgoKSW5jbHVkZSB5b3VyIGluaXRpYWwgaW50dWl0aW9uIGFzIHRvIHdoYXQgdGhlIGFuc3dlciB0byB5b3VyIHJlc2VhcmNoIHF1ZXN0aW9uIGlzIHVzaW5nIHRoZSBkYXRhIHNldHMgYW5kIHZpc3VhbGl6YXRpb25zIHlvdSBjcmVhdGVkLiA=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkluaXRpYWwgRURBIEJhc2ljIE91dGxpbmUiDQphdXRob3I6ICJBbGxpc29uIFJhY2hvciINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClRoaXMgaXMgYW4gb3V0bGluZSBmb3IgeW91ciBJbml0aWFsIEVEQS4gWW91IGNhbiBmb2xsb3cgdGhpcyBvdXRsaW5lLCBvciB5b3UgY2FuIG1vZGlmeSBpdCBhcyB5b3Ugc2VlIGZpdC4gRG8gd2hhdCB3b3JrcyBiZXN0IGZvciB5b3VyIHByb2plY3QuIA0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShkZXZ0b29scykNCmxpYnJhcnkoZHBseXIpDQpgYGANCg0KDQojIyBSZXNlYXJjaCBRdWVzdGlvbiANCg0KU3RhdGUgeW91ciBzcGVjaWZpYyByZXNlYXJjaCBxdWVzdGlvbiBhbmQgd2h5IGl0IGlzIGludGVyZXN0aW5nLiANCg0KSG93IGRpZCB0aGUgcHJldmFsZW50IHllYXJzLCBlc3BlY2lhbGx5IHRoZSB5ZWFyIGNvbnRhaW5pbmcgbG9jay1kb3duLCBvZiBDT1ZJRC0xOSBhZmZlY3QgdGhlIHNhbGVzIG9mIGJvb2tzIGluIHRoZSBVbml0ZWQgU3RhdGVzPw0KDQpUaGlzIGlzIGludGVyZXN0aW5nIGJlY2F1c2UsIGludHVpdGl2ZWx5LCBtb3JlIHBlb3BsZSBlbmdhZ2VkIGluIGNlcnRhaW4gYWN0aXZpdGllcyBsaWtlIHJlYWRpbmcgdG8gdGFrZSB1cCB0aGVpciB0aW1lIGR1cmluZyBxdWFyYW50aW5lIChhIGhhYml0IHRoYXQgbWlnaHQgbm90IGhhdmUgcHJldmlvdXNseSBiZWVuIHByZXNlbnQgZm9yIHNvbWUpLiBIb3dldmVyLCB0aGUgbGFjayBvZiBpbi1wZXJzb24gYXZhaWxhYmlsaXR5IHRvIGJ1eSBib29rcyBjb3VsZCBwb3NzaWJseSBvZmZzZXQgd2hhdGV2ZXIgaW5jcmVhc2UgaW4gb3ZlcmFsbCBwdXJjaGFzZXMgY2FtZSBmcm9tIG1vcmUgcmVhZGluZyBpbiBnZW5lcmFsLg0KDQojIyBEYXRhIFByb2Nlc3NpbmcgDQoNCiMjIyMgRGF0YSBJbnRha2UgDQoNCkluY2x1ZGUgUiBjb2RlIGFuZCB3cml0dGVuIGV4cGxhbmF0aW9uIHRvIGltcG9ydCB5b3VyICoqVFdPKiogZGF0YSBzZXRzLg0KYGBge3J9DQpTdG9yZVNhbGVzIDwtIHJlYWQuY3N2KCJib29rc3RvcmVfc2FsZXMoY3N2KS5jc3YiLCBuYS5vbWl0KFRSVUUpKQ0KUmVjQ29uIDwtIHJlYWQuY3N2KCJyZWNyZWF0aW9uYWxfY29uc3Vtc3B0aW9uXzE5OTktMjAyMl9jc3YuY3N2IikNCmBgYA0KDQpUaGUgZmlyc3QgZGF0YSBzZXQgIlN0b3JlU2FsZXMiIGlzIGEgcmVmZWxjdGlvbiBvZiB0aGUgYW1vdW50IG9mIGJvb2sgc2FsZXMgKGluIGJpbGxpb25zIG9mIGRvbGxhcnMpIHRoYXQgd2VyZSBtYWRlIGJldHdlZW4gdGhlIHllYXJzIDE5OTIgYW5kIDIwMjIuIFRoZSBjb2xsZWN0aW9uIHdhcyBtYWRlIGJ5IHRoZSBVLlMuIENlbnN1cyBCdXJlYXUgd2hlcmUgYW55IHJldGFpbGVyIHdob3NlIGJvb2sgc2FsZXMgbWFkZSBhdCBsZWFzdCA1MCUgb2YgdGhlaXIgcmV2ZW51ZSB3YXMgY29uc2lkZXJlZCBhIGJvb2sgc3RvcmUuDQoNClRoZSBkYXRhIHNldCAiUmVjQ29uIiB3YXMgY3JlYXRlZCBieSB0aGUgQnVyZWF1IG9mIEVjb25vbWljIEFuYWx5c2lzLCBhbiBhZ2VuY3kgaW4gdGhlIERlcGFydG1lbnQgb2YgQ29tbWVyY2UuIFRoaXMgZGF0YSBzZXQgY29udGFpbnMgdGhlIGFubnVhbCBhbW91bnQgKGluIGJpbGxpb25zIG9mIGRvbGxhcnMpIG9mIGNvbnN1bWVyIGV4cGVuZGl0dXJlIG9uIHJlY3JlYXRpb25hbCBib29rIGluIHRoZSBVLlMgZnJvbSB0aGUgeWVhcnMgMTk5OSB0byAyMDIyLiANCg0KQm90aCBkYXRhIHNldHMgY29udGFpbiB0aGUgeWVhcnMgY292ZXJpbmcgdGhlIG1haW4geWVhcnMgY29uY2VybmluZyBDT1ZJRC0xOSAoMjAxOS0yMDIyKS4NCg0KIyMjIyBEYXRhIEV4YW1pbmF0aW9uIA0KDQpgYGB7cn0NCiNTdG9yZVNhbGVzDQpoZWFkKFN0b3JlU2FsZXMpDQpzdW1tYXJ5KFN0b3JlU2FsZXMpDQpjb2xuYW1lcyhTdG9yZVNhbGVzKQ0KI1JlY3JlYXRpb25hbCBDb25zdW1wdGlvbg0KaGVhZChSZWNDb24pDQpzdW1tYXJ5KFJlY0NvbikNCmNvbG5hbWVzKFJlY0NvbikNCg0KYGBgDQpObyBub3RpY2VhYmxlIG91dGxpZXJzIGFyZSBwcmVzZW50IGluIGVpdGhlciBkYXRhIHNldHMuIFRoZSBzdW1tYXJ5IHN0YXRpc3RpY3MgZm9yICJSZWNDb24iIGlzIGNsZWFybHkgaGlnaGVyIHRoYW4gdGhvc2UgZm9yICJTdG9yZVNhbGVzIi4gV2hpbGUgdGhlIGluZm9ybWF0aW9uIGZvciBib3RoIGFyZSBjbGVhcmx5IHJlbGF0ZWQsIHRoaXMgbWFrZXMgc2Vuc2Ugc2luY2UgIlJlY0NvbiIgaW5jbHVkZXMgbW9uZXkgc3BlbnQgb24gYm9va3MgZnJvbSByZXRhaWxlcnMgdGhhdCB3b3VsZCBub3QgaGF2ZSBiZWVuIGNvbnNpZGVyZWQgYm9vayBzdG9yZXMgYnkgdGhlIENlbnN1cyBCdXJlYXUgKGkuZS4gQW1hem9uIGFuZCBvdGhlciBwb3B1bGFyIG9ubGluZSBzdG9yZXMpLg0KDQpUaGUgQ29sdW1uIG5hbWVzIGZvciBib3RoIHNldHMgbmVlZCB0byBiZSBhZGp1c3RlZCBpbiBvcmRlciB0byBkZXNjcmliZSB0aGUgdmFyaWFibGVzIGF0IGhhbmQuDQoNCiMjIyMgRGF0YSBXcmFuZ2xpbmcgDQoNCkluY2x1ZGUgUiBjb2RlIGFuZCB3cml0dGVuIGV4cGxhbmF0aW9uIGZvciB3YW5nbGluZyB5b3VyIGRhdGEgKHlvdSBjYW4gbWFrZSBtdWx0aXBsZSB3cmFuZ2xlZCBkYXRhIHNldHMpLiANCg0KDQpgYGB7cn0NClN0b3JlU2FsZXMyIDwtIFN0b3JlU2FsZXNbLWMoMToyOCksXSAlPiUNCiAgcmVuYW1lKFllYXIgPSBCb29rLnN0b3JlLnNhbGVzLmluLnRoZS5VLlMuLjE5OTIuMjAyMikgJT4lDQogIHJlbmFtZShTdG9yZV9zYWxlcyA9IFgpICU+JQ0KICBtdXRhdGUoWWVhciA9IGdzdWIocGF0dGVybiA9ICJbWzpwdW5jdDpdXSIsIHJlcGxhY2VtZW50ID0gIiIsIHggPSBZZWFyKSkNCg0KDQpSZWNDb24yIDwtIFJlY0NvblstYygxOjIxKSxdICU+JQ0KICByZW5hbWUoWWVhciA9IFJlY3JlYXRpb25hbC5ib29rcy4uY29uc3VtZXIuZXhwZW5kaXR1cmUuaW4udGhlLlUuUy4uMTk5OS4yMDIyKSAlPiUNCiAgcmVuYW1lKFJlY3JlYXRpb25hbF9zYWxlcyA9IFgpDQogIA0KDQpTdG9yZVJlYyA8LSBTdG9yZVNhbGVzMiAlPiUgaW5uZXJfam9pbihSZWNDb24yKQ0KDQoNCiAgDQpgYGANCkJvdGggZGF0YSBzZXRzIG5lZWRlZCB0byBleGNsdWRlIGFsbCByb3dzIGJlZm9yZSAyMDE4IHNpbmNlIHRoZSByZXNlYXJjaCBxdWVzdGlvbiBpcyBzcGVjaWZpY2FsbHkgYWJvdXQgdGhlIHllYXJzIHN1cnJvdW5kaW5nLiBUaGUgZmlyc3QgY29sdW1ucyBpbiBib3RoIG5lZWRlZCB0byBiZSByZW5hbWVkIHRvICJZZWFyIiB0byBsYXRlciBhbGxvdyB0aGUgc2V0cyB0byBqb2luIHByb3Blcmx5LiBUaGUgdmFyaWFibGVzIHJlZmxlY3RpbmcgcmV2ZW51ZXMgZm9yIGJvb2sgc3RvcmUgc2FsZXMgYW5kIHJlY3JlYXRpb25hbCBzYWxlcyBuZWVkZWQgdG8gYmUgcmVuYW1lZCBhcyB3ZWxsLiBJbiAiU3RvcmVTYWxlcyIsIGFsbCB0aGUgeWVhcnMgbmVlZGVkIHRvIGJlIG11dGF0ZWQgdG8gbWFrZSBzdXJlIG9ubHkgbnVtZXJpY2FsIHZhbHVlcyB3ZXJlIHByaW50ZWQuIEJvdGggc2V0cyB3ZXJlIGpvaW5lZCB0b2dldGhlciBieSAiWWVhciIsIGJ1dCBvbmx5IHllYXJzIHRoYXQgd2VyZSByZWNvcmRlZCBpbiBlYWNoIHNldC4NCiANCiMjIERhdGEgVmlzdWFsaXphdGlvbg0KDQojIyMjIFBsb3QgMQ0KDQpJbmNsdWRlIFIgY29kZSB0byBtYWtlIG9uZSBkYXRhIHZpc3VhbGl6YXRpb24gKEkgd291bGQgZW5jb3VyYWdlIHlvdSB0byB1c2UgMyBvciBtb3JlIHZhcmlhYmxlcykuIEluY2x1ZGUgYSBicmllZiB3cml0dGVuIGRlc2NyaXB0aW9uIG9mIHdoYXQgeW91ciBncmFwaCBzaG93cy4gSXMgdGhpcyBncmFwaCBoZWxwZnVsIGluIGFuc3dlcmluZyB5b3VyIHJlc2VhcmNoIHF1ZXN0aW9uPyBJZiBpdCBpcyBoZWxwZnVsLCB3aWxsIHlvdSBuZWVkIHRvIGFkZC9tb2RpZnkgYW55dGhpbmcgaW4gdGhpcyBncmFwaCBpbiB0aGUgZmluYWwgcmVwb3J0PyANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IFJlY0NvbjIpICsNCiAgZ2VvbV9wb2ludChhZXMoeCA9IFllYXIsIHkgPSBSZWNyZWF0aW9uYWxfc2FsZXMpKSArDQogIGdndGl0bGUoIlJlY3JlYXRpb25hbCBCb29rIFNhbGVzIE92ZXIgQ292aWQgaW4gdGhlIFUuUyIpICsNCiAgeWxhYigiRG9sbGFycyAoaW4gQmlsbGlvbnMpIikNCmBgYA0KVGhpcyBncmFwaCBzaG93cyBob3cgdGhlIHJldmVudWUgZm9yIHJlY3JlYXRpb25hbCBib29rIHB1cmNoYXNlcyBvZiBib29rcyBjaGFuZ2VkIGR1cmluZyBDT1ZJRC4gV2hpbGUgdGhlIGFtb3VudCBkaWQgbm90IGluY3JlYXNlIGJ5IGEgbG90IGR1cmluZyB0aGUgeWVhciBvZiBsb2NrLWRvd24sIHRoZXJlIHdhcyBhIGh1ZSBpbmNyZWFzZSBpbiB0aGUgeWVhciBhZnRlciBpdC4gVGhpcyBhZGRyZXNzZXMgdGhlIHJlc2VhcmNoIHF1ZXN0aW9uIGJ5IHNob3dpbmcgaG93IGEgbm90aWNlYWJsZSBjaGFuZ2UgZGlkIHRha2UgcGxhY2UgZHVyaW5nIHRoZSB2aXJ1cy4gDQoNCiMjIyMgUGxvdCAyDQoNCkluY2x1ZGUgUiBjb2RlIHRvIG1ha2Ugb25lIGRhdGEgdmlzdWFsaXphdGlvbiAoSSB3b3VsZCBlbmNvdXJhZ2UgeW91IHRvIHVzZSAzIG9yIG1vcmUgdmFyaWFibGVzKS4gSW5jbHVkZSBhIGJyaWVmIHdyaXR0ZW4gZGVzY3JpcHRpb24gb2Ygd2hhdCB5b3VyIGdyYXBoIHNob3dzLiBJcyB0aGlzIGdyYXBoIGhlbHBmdWwgaW4gYW5zd2VyaW5nIHlvdXIgcmVzZWFyY2ggcXVlc3Rpb24/IElmIGl0IGlzIGhlbHBmdWwsIHdpbGwgeW91IG5lZWQgdG8gYWRkL21vZGlmeSBhbnl0aGluZyBpbiB0aGlzIGdyYXBoIGluIHRoZSBmaW5hbCByZXBvcnQ/IA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gU3RvcmVTYWxlczIpICsNCiAgZ2VvbV9wb2ludChhZXMoeCA9IFllYXIsIHkgPSBTdG9yZV9zYWxlcykpICsNCiAgZ2d0aXRsZSgiQm9vayBTdG9yZSBTYWxlcyBPdmVyIENvdmlkIGluIHRoZSBVLlMiKSArDQogIHlsYWIoIkRvbGxhcnMgKGluIEJpbGxpb25zKSIpDQpgYGANClRoaXMgZ3JhcGggc2hvd3MgYSBsYXJnZSBkZWNyZWFzZSBpbiBib29rIHN0b3JlcyBkdXJpbmcgdGhlIHllYXIgb2YgQ09WSUQtMTksIGJ1dCBhbiBpbmNyZWFzZSBhZnRlciB0aGUgeWVhciBvZiBsb2NrLWRvd24uIFRoaXMgYWRkcmVzc2VzIHRoZSByZXNlYXJjaGVyIHF1ZXN0aW9uIGJ5IGRlc2NyaWJpbmcgYSB0cmVuZCBkdXJpbmcgdGhlIHllYXJzIG9mIHRoZSB2aXJ1cy4gSSBjb3VsZCBtb2RpZnkgYm90aCBncmFwaHMgYnkgYWxzbyBwcm92aWRpbmdhIGEgdmlzdWFsIGNvbnRhaW5pbmcgYm90aCBkYXRhIHNldHMuDQoNCiMjIENvbmNsdXNpb24NCg0KSW5jbHVkZSB5b3VyIGluaXRpYWwgaW50dWl0aW9uIGFzIHRvIHdoYXQgdGhlIGFuc3dlciB0byB5b3VyIHJlc2VhcmNoIHF1ZXN0aW9uIGlzIHVzaW5nIHRoZSBkYXRhIHNldHMgYW5kIHZpc3VhbGl6YXRpb25zIHlvdSBjcmVhdGVkLiANCg0KSXQgaXMgY2xlYXIgdGF0IENPVklELTE5LCBpbiBnZW5lcmFsIGFkIGFuIGltcGFjdCBvbiB0aGUgc2FsZXMgb2YgYm9vayBvdmVyYWxsLiBUaGUgZmlyc3QgZ3JhcGggc2hvd3Mgb3cgYSBsb3Qgb2YgdGltZSBpbnNpZGUgY291bGQgaGF2ZSBwbGF5ZWQgYSBwYXJ0IGluIGVuY291cmFnaW5nIHBlb3BsZSB0byBidXkgYW5kIChhc3N1bWFibHkpIHJlYWQgbW9yZSBib29rcyB0aGFuIHByZXZpb3VzIHllYXJzLiBob3dldmVyLCB0aGUgc2FsZXMgZnJvbSBib29rIHN0b3JlcyB3YXMgdGhlIGxvd2VzdCBpbiAyMDIwLCB0aGUgeWVhciBvZiBsb2NrLWRvd24uIFRoaXMgaXMgc3VycHJpc2luZyBjb25zaWRlcmluZyBsb2NrLWRvd24gd291bGQgaGF2ZSByZXF1aXJlZCBtb3JlIHRpbWUgYXQgaG9tZSwgdGh1cyBtYWtpbmcgaXQgZWFzaWVyIHRvIHBpY2sgdXAgdGhlIGhhYml0LiBXaGlsZSB0aGlzIGlzIHRoZSB5ZWFyIHdoZXJlIGJ1c2luZXNzZXMgd2VyZSBub3Qgb3BlbiBmb3IgYSBwZXJpb2Qgb2YgdGltZSwgb25saW5lIHJlc291cmNlcyBjb3VsZCBoYXZlIG1hZGUgdXAgZm9yIHRhdCBtaXNzaW5nIGVsZW1lbnQuIFRoaXMgc3VnZ2VzdHMgdGhhdCB3aGlsZSBjZXJ0YWluIGNvbXBhbmllcyAobGlrZSBBbWF6b24pIHNlbGwgYSBsb3Qgb2YgYm9va3MsIGluLXBlcnNvbiBzdG9yZXMgcHJvdmlkZSB0aGUgdmFzdCBtYWpvcml0eSBvZiBib29rIHNhbGVzLg==</div>
 
 
 
