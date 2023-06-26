@@ -15,9 +15,9 @@ How did the years affected by COVID-19, especially the year of lock down, impact
 
 #### Data Intake 
 
-The first data set ("StoreSales") used used was released by the U.S Census Bureau and is about the yearly amount of book sales, in billions of dollars, by book stores between the years 1992 and 2022. The Census Bureau collected data from book stores that were defined as a retailer whose yearly revenue was made up by at least 50% in book sells. 
+The first data set ("StoreSales") used used was released by the U.S Census Bureau and is about the yearly amount of book sales, in billions of dollars, by book stores between the years 1992 and 2022. The Census Bureau collected data from book stores that were defined as a retailer whose yearly revenue was made up by at least 50% in book sells. [Link to StoreSites](https://www.statista.com/statistics/197710/annual-book-store-sales-in-the-us-since-1992/)
 
-The data set "RecCon" is from the Bureau of Economic Analysis, which is an agency in the Department of Commerce. This data set entail information on the annual amount of consumer expenditure on recreational books from the years 1999 to 2022. 
+The data set "RecCon" is from the Bureau of Economic Analysis, which is an agency in the Department of Commerce. This data set entail information on the annual amount of consumer expenditure on recreational books from the years 1999 to 2022. [Link to RecCon](https://fred.stlouisfed.org/series/DRBKRC1A027NBEA)
 
 Both data sets contain revenue relating to book purchases in the years containing COVID-19, but "StoreSales" focuses solely on the revenue made from actual book retailers (i.e. Barnes and Noble, Books-A-Million, family-owned book stores etc.). Therefore, even if some stores/websites might have a higher revenue in book stores than smaller business, they would not have been included if those purchases did not account for at least half of their revenue. For example, Amazon makes billions of dollars from various forms of book consumption and is a huge contributor to the industry, but those purchases only make up about 10% of their total profit.
 
@@ -28,8 +28,35 @@ On the other hand, "RecCon" does not discriminate on the basis of source, but it
 Include R code and written explanation for wangling your data (you can make multiple wrangled data sets). 
 
 ```{r}
+#load libraries
+library(tidyverse)
+library(devtools)
+library(dplyr)
+library(knitr)
 StoreSales <- read.csv("bookstore_sales(csv).csv", na.omit(TRUE))
 RecCon <- read.csv("recreational_consumsption_1999-2022_csv.csv")
+
+head(StoreSales)
+summary(StoreSales)
+colnames(StoreSales)
+#Recreational Consumption
+head(RecCon)
+summary(RecCon)
+tail(RecCon)
+
+#data wrangling
+StoreSales2 <- StoreSales[-c(1:28),] %>%
+  rename(Year = Book.store.sales.in.the.U.S..1992.2022) %>% #fix variable to year
+  rename(Store_sales = X) %>% #rename sales to X (later join table)
+  mutate(Year = gsub(pattern = "[[:punct:]]", replacement = "", x = Year)) #get rid of any non-digit in Year
+
+
+RecCon2 <- RecCon[-c(1:21),] %>%
+  rename(Year = Recreational.books..consumer.expenditure.in.the.U.S..1999.2022) %>%
+  rename(Recreational_sales = X)
+
+#Join
+StoreRec <- StoreSales2 %>% inner_join(RecCon2)
 ```
 
 
@@ -37,6 +64,37 @@ RecCon <- read.csv("recreational_consumsption_1999-2022_csv.csv")
 ## Data Visualization
 
 Include R code and written explanation for your data visualization(s) with at least 3 variables. You must have **at least** one graph. You may have more than one (I would encourage you to have more than one). 
+
+```{r}
+
+ggplot(data = RecCon2) +
+  geom_point(aes(x = Year, y = Recreational_sales)) +
+  ggtitle("Recreational Book Sales Over Covid in the U.S") +
+  ylab("Dollars (in Billions)")
+```
+
+
+```{r}
+ggplot(data = StoreSales2) +
+  geom_point(aes(x = Year, y = Store_sales)) +
+  ggtitle("Book Store Sales Over Covid in the U.S") +
+  ylab("Dollars (in Billions)") +
+  
+```
+
+```{r}
+
+
+StoreRec %>%
+  dplyr::select(Year, Store_sales, Recreational_sales) %>%
+  knitr::kable(caption = "Book Store Sales vs. Total Recreational Sales Durin COVID-19") 
+
+
+ggplot(data = StoreRec) +
+  geom_point(aes(x = Year, y = Store_sales, color = Recreational_sales))
+
+
+```
 
 
 
