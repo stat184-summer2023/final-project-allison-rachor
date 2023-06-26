@@ -1,27 +1,36 @@
 ---
-title: "Final Project Basic Outline"
-author: "Names of all group members"
+title: "Final Project"
+author: "Allison Rachor"
 output: html_notebook
 ---
 
-This is an outline for your final project. You can follow this outline, or you can modify it as you see fit. Do what works best for your project. 
 
 ## Research Question 
 
 State your general specific question and why it is interesting. 
 
-
+How did the years affected by COVID-19, especially the year of lock down, impact the sales of books in the United States.
 
 ## Data Processing 
 
 #### Data Intake 
 
-Include R code and written explanation to import your **TWO** data sets.
+The first data set ("StoreSales") used used was released by the U.S Census Bureau and is about the yearly amount of book sales, in billions of dollars, by book stores between the years 1992 and 2022. The Census Bureau collected data from book stores that were defined as a retailer whose yearly revenue was made up by at least 50% in book sells. 
+
+The data set "RecCon" is from the Bureau of Economic Analysis, which is an agency in the Department of Commerce. This data set entail information on the annual amount of consumer expenditure on recreational books from the years 1999 to 2022. 
+
+Both data sets contain revenue relating to book purchases in the years containing COVID-19, but "StoreSales" focuses solely on the revenue made from actual book retailers (i.e. Barnes and Noble, Books-A-Million, family-owned book stores etc.). Therefore, even if some stores/websites might have a higher revenue in book stores than smaller business, they would not have been included if those purchases did not account for at least half of their revenue. For example, Amazon makes billions of dollars from various forms of book consumption and is a huge contributor to the industry, but those purchases only make up about 10% of their total profit.
+
+On the other hand, "RecCon" does not discriminate on the basis of source, but it does on the type of book that is being purchased. This data set includes sales regardless of what retailer is responsible for the sale, only that the book's purchase was recreation. For instance, the Bureau of Economic Analysis has also released a data set on yearly personal expenditure of educational books. To clarify further, "StoreSales" includes any book subject or motivation but only from technical book stores, while "RecCon" includes any retailer, but only if the purchase is deemed as recreational. I am interested to see how these data sets work together to address the research question.
 
 #### Data Wrangling 
 
 Include R code and written explanation for wangling your data (you can make multiple wrangled data sets). 
 
+```{r}
+StoreSales <- read.csv("bookstore_sales(csv).csv", na.omit(TRUE))
+RecCon <- read.csv("recreational_consumsption_1999-2022_csv.csv")
+```
 
 
 
