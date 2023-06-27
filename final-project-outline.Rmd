@@ -7,27 +7,27 @@ output: html_notebook
 
 ## Research Question 
 
-State your general specific question and why it is interesting. 
-
 How did the years affected by COVID-19, especially the year of lock down, impact the sales of books in the United States.
+
+This is interesting because, intuitively, more people engaged in certain activities like reading to take up their time during quarantine, something they might not have done before. However, the lack of in-person availability to buy books could possibly offset whatever increase in overall purchases came from more reading in general.
 
 ## Data Processing 
 
 #### Data Intake 
 
-The first data set ("StoreSales") used used was released by the U.S Census Bureau and is about the yearly amount of book sales, in billions of dollars, by book stores between the years 1992 and 2022. The Census Bureau collected data from book stores that were defined as a retailer whose yearly revenue was made up by at least 50% in book sells. [Link to StoreSites](https://www.statista.com/statistics/197710/annual-book-store-sales-in-the-us-since-1992/)
+The first data set used, "StoreSales", was released by the U.S Census Bureau and is about the yearly amount of book sales, in billions of dollars, by book stores between the years 1992 and 2022. The Census Bureau collected data from book stores that were defined as a retailer whose yearly revenue was made up by at least 50% in book sells. [Link to StoreSites](https://www.statista.com/statistics/197710/annual-book-store-sales-in-the-us-since-1992/)
 
-The data set "RecCon" is from the Bureau of Economic Analysis, which is an agency in the Department of Commerce. This data set entail information on the annual amount of consumer expenditure on recreational books from the years 1999 to 2022. [Link to RecCon](https://fred.stlouisfed.org/series/DRBKRC1A027NBEA)
+The data set "RecCon" is from the Bureau of Economic Analysis, an agency in the Department of Commerce. This data set provides information on the annual amount of consumer expenditure on recreational books from the years 1999 to 2022. [Link to RecCon](https://fred.stlouisfed.org/series/DRBKRC1A027NBEA)
 
-Both data sets contain revenue relating to book purchases in the years containing COVID-19, but "StoreSales" focuses solely on the revenue made from actual book retailers (i.e. Barnes and Noble, Books-A-Million, family-owned book stores etc.). Therefore, even if some stores/websites might have a higher revenue in book stores than smaller business, they would not have been included if those purchases did not account for at least half of their revenue. For example, Amazon makes billions of dollars from various forms of book consumption and is a huge contributor to the industry, but those purchases only make up about 10% of their total profit.
+Both data sets contain revenue relating to book purchases in the years containing COVID-19, but "StoreSales" focuses solely on the revenue made from actual book retailers (i.e. Barnes and Noble, Books-A-Million, family-owned book stores etc.). Therefore, even if some stores/websites might have a higher revenue in book stores than most smaller businesses, they would not have been included if those purchases did not account for at least half of their revenue. For example, Amazon makes billions of dollars from various forms of book purchases by customers and is a huge contributor to the industry, but those purchases only make up about 10% of their total profit, thereby disqualifying them from this data.
 
-On the other hand, "RecCon" does not discriminate on the basis of source, but it does on the type of book that is being purchased. This data set includes sales regardless of what retailer is responsible for the sale, only that the book's purchase was recreation. For instance, the Bureau of Economic Analysis has also released a data set on yearly personal expenditure of educational books. To clarify further, "StoreSales" includes any book subject or motivation but only from technical book stores, while "RecCon" includes any retailer, but only if the purchase is deemed as recreational. I am interested to see how these data sets work together to address the research question.
+On the other hand, "RecCon" does not discriminate on the basis of source, only on the type of book that is being purchased. This data set includes sales regardless of what retailer is responsible for the sale, only that the book's purchase was recreational. For instance, the Bureau of Economic Analysis has also released a data set on yearly personal expenditure of educational books. To clarify further, "StoreSales" includes any book subject or purchase motivation only from technical book stores, and "RecCon" includes any retailer, but only if the purchase is deemed as recreational. I am interested to see how these data sets work together to address the research question.
 
 #### Data Wrangling 
 
-Include R code and written explanation for wangling your data (you can make multiple wrangled data sets). 
 
 ```{r}
+
 #load libraries
 library(tidyverse)
 library(devtools)
@@ -52,53 +52,55 @@ StoreSales2 <- StoreSales[-c(1:28),] %>%
 
 
 RecCon2 <- RecCon[-c(1:21),] %>%
-  rename(Year = Recreational.books..consumer.expenditure.in.the.U.S..1999.2022) %>%
+  rename(Year = Recreational.books..consumer.expenditure.in.the.U.S..1999.2022) %>% #rename variable to year
   rename(Recreational_sales = X)
 
 #Join
-StoreRec <- StoreSales2 %>% inner_join(RecCon2)
+StoreRec <- StoreSales2 %>% inner_join(RecCon2) #join on the basis of year
 ```
 
+Both data sets are not friendly towards interpretation immediately, and there are decades worth of sales included in the sets that are not conducive towards focusing on COVID-19. Because of this, it is hard to connect the data sets together to see how they address the research question. Both data sets needed to have variables renamed to appropriately reflect the variables recorded the year and its respective sale. The sets were also cut down to only show the years affecting COVID-19 (2019-2022), along with 2018 for addition reference of sales. The data sets were joined on the basis of "Year" to produce a table reflecting both kinds of sales. No outliers were in either data set.
 
 
 ## Data Visualization
-
-Include R code and written explanation for your data visualization(s) with at least 3 variables. You must have **at least** one graph. You may have more than one (I would encourage you to have more than one). 
 
 ```{r}
 
 ggplot(data = RecCon2) +
   geom_point(aes(x = Year, y = Recreational_sales)) +
-  ggtitle("Recreational Book Sales Over Covid in the U.S") +
+  ggtitle("Recreational Book Sales Over COVID-19 in the U.S.") +
   ylab("Dollars (in Billions)")
 ```
+"Recreational Book Sales Over COVID-19 in the US" shows how the total sale for non-educational books increased since the virus began. There was actually a decrease in sales during 2019, which could not be attributed fully to the virus, since the US was not affected by the virus until 2020. However, there was barely any increase in sales until 2021, which was after lock-down. This suggests that regardless of retailer, people might not have started purchasing books to start/revive a new habit until later into the pandemic.
 
 
 ```{r}
 ggplot(data = StoreSales2) +
   geom_point(aes(x = Year, y = Store_sales)) +
-  ggtitle("Book Store Sales Over Covid in the U.S") +
-  ylab("Dollars (in Billions)") +
+  ggtitle("Book Store Sales Over COVID-19 in the U.S.") +
+  ylab("Dollars (in Billions)") 
   
 ```
+"Book Store Sales Over COVID in the U.S." shows a general decrease from 2018 to 2020 and an increase in 2021 and 2022. This would make sense when considering lock-down occurred in 2020, causing many businesses to close temporarily. It is also worth mentioning that some book stores that were locally owned might have been forced to close all-together if they could not recover from quarantine. If none were forced to close it could be possible that the increase in book store sales in 2021 could have been even higher.
+
 
 ```{r}
 
-
+#display table before graphic
 StoreRec %>%
   dplyr::select(Year, Store_sales, Recreational_sales) %>%
-  knitr::kable(caption = "Book Store Sales vs. Total Recreational Sales Durin COVID-19") 
+  knitr::kable(caption = "Book Store Sales vs. Total Recreational Sales During COVID-19 in the U.S.") 
 
-
+#graph with both sale types
 ggplot(data = StoreRec) +
-  geom_point(aes(x = Year, y = Store_sales, color = Recreational_sales))
-
+  geom_point(aes(x = Year, y = Store_sales, color = Recreational_sales), size = 3L) +
+  ggtitle("Book Store Sales and Recreational Book Sales Over COVID-19 in the U.S.") +
+  ylab("Dollars (in Billions)") 
 
 ```
-
-
+This table and graph show both sales figures from 2018-2022. There were more recreational sales than sales from book stores, which shows how some companies that did not qualify as book retailers (namely Amazon) are still able to contribute immensely to the industry. It is also seen that even though book store sales have not recovered to the pre-COVID amount, the recreational sales have surpassed pre-COVID by over 6 billion dollars.
 
 
 ## Conclusion
 
-Answer your research question using the data sets and visualizations you created. 
+There is a clear pattern between the years of COVID-19 and each kind of sale recorded. The lowest venue for book stores was in 2020, which would make sense due to this being the year of lock-down. Business closing and people not leaving there houses as much would drastically impact the ability to physically shop and purchase books. Online retailers could potentially have made up for this if people were willing to purchases books via the internet, but it is possible that a combination of people not wanting to purchase anything that wasn't necessary, and those online businesses also closing down, might have made it impossible for 2020 to produce any sort of change in revenue. It is also possible that a lot of people still could have increased or picked up the habit, but chose to use audio books from their library or from Amazon's Audible subscription instead, which would not have been able to impact either data set. However, even though book store sales are still working to reach pre-COVID numbers, the recreational sales show that more people are buying books than before, suggesting the habit has indeed hit a resurgence across the country.
